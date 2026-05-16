@@ -1,0 +1,1766 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>НейроГребенюк — позвони Михаилу Гребенюку прямо сейчас</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23c8ff2e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Golos%20Text,sans-serif' font-size='34' font-weight='900' fill='%23050604'%3E%D0%9D%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#090a08;
+    --panel:#141612;
+    --panel-2:#f3f4ef;
+    --ink:#f5f7ef;
+    --dark:#090a08;
+    --muted:#92988e;
+    --acid:#c8ff2e;
+    --acid-2:#a7e914;
+    --line:rgba(255,255,255,.12);
+    --soft:#e6e9df;
+    --wrap:1220px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;background:var(--bg)}
+  body{
+    margin:0;
+    min-width:320px;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 80% 0%, rgba(200,255,46,.12), transparent 25rem),
+      radial-gradient(circle at 12% 28%, rgba(200,255,46,.07), transparent 28rem),
+      var(--bg);
+    font-family:"Golos Text",system-ui,sans-serif;
+    letter-spacing:0;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .container{width:min(calc(100% - 72px), var(--wrap));margin:0 auto}
+  .nav{
+    position:absolute;
+    z-index:10;
+    top:26px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(calc(100% - 72px), var(--wrap));
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+  }
+  .brand{display:flex;align-items:center;font-weight:900}
+  .brand-logo{display:block;width:auto;height:25px}
+  .nav-links{display:flex;gap:26px;color:#d9ded2;font-size:14px;font-weight:700}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-height:48px;
+    border-radius:999px;
+    border:0;
+    background:var(--acid);
+    color:#050604;
+    padding:0 23px;
+    font-weight:900;
+    box-shadow:0 0 28px rgba(200,255,46,.34);
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .btn.dark{background:#050604;color:#fff;box-shadow:none}
+  .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18);box-shadow:none}
+  h1,h2,h3,p{margin:0}
+
+  .hero{
+    position:relative;
+    min-height:850px;
+    padding:118px 0 78px;
+    overflow:hidden;
+    background:#08110f;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 77% 43%, rgba(200,255,46,.18), transparent 17rem),
+      radial-gradient(circle at 78% 52%, rgba(142,210,245,.18), transparent 24rem),
+      radial-gradient(circle at 18% 20%, rgba(200,255,46,.08), transparent 22rem),
+      linear-gradient(90deg, rgba(7,12,11,.94) 0%, rgba(8,17,15,.86) 45%, rgba(12,31,29,.72) 100%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.055) 0 1px, transparent 1px 88px),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 88px),
+      linear-gradient(135deg, #08100f 0%, #102926 58%, #08100f 100%);
+    opacity:1;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(115deg, transparent 0 57%, rgba(200,255,46,.16) 57.2%, transparent 58%),
+      linear-gradient(115deg, transparent 0 68%, rgba(142,210,245,.16) 68.1%, transparent 68.35%),
+      linear-gradient(180deg, transparent 0%, rgba(8,10,8,.28) 100%);
+    opacity:.78;
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:3;
+    display:grid;
+    grid-template-columns:minmax(0, 650px) minmax(340px, 1fr);
+    gap:64px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:#d9ded2;
+    font-size:14px;
+    font-weight:800;
+  }
+  .eyebrow::before{
+    content:"";
+    width:9px;height:9px;border-radius:50%;
+    background:var(--acid);
+    box-shadow:0 0 18px var(--acid);
+  }
+  .hero h1{
+    margin-top:28px;
+    font-size:61px;
+    line-height:.98;
+    font-weight:800;
+    text-transform:uppercase;
+  }
+  .hero h1 span{color:var(--acid)}
+  .hero-bullets{
+    margin:34px 0 0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:14px;
+    max-width:660px;
+  }
+  .hero-bullets li{
+    display:grid;
+    grid-template-columns:22px 1fr;
+    gap:14px;
+    color:#d8ded1;
+    font:700 18px/1.34 "Golos Text",system-ui,sans-serif;
+  }
+  .hero-bullets li::before{
+    content:"";
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    margin-top:.45em;
+    background:var(--acid);
+    box-shadow:0 0 14px rgba(200,255,46,.65);
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .phone-wrap{justify-self:end;position:relative}
+  .phone-wrap::before{
+    content:"";
+    position:absolute;
+    inset:44px -40px 34px -42px;
+    border-radius:70px;
+    background:
+      radial-gradient(circle at 50% 40%, rgba(200,255,46,.18), transparent 13rem),
+      linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 0 80px rgba(200,255,46,.14), inset 0 0 70px rgba(255,255,255,.04);
+    transform:rotate(-4deg);
+  }
+  .phone{
+    width:360px;
+    min-height:690px;
+    border:12px solid #050604;
+    border-radius:54px;
+    background:#111;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 34px 90px rgba(0,0,0,.58), 0 0 0 1px rgba(255,255,255,.08);
+  }
+  .phone::before{
+    content:"";
+    position:absolute;
+    z-index:6;
+    top:16px;
+    left:50%;
+    transform:translateX(-50%);
+    width:122px;
+    height:34px;
+    border-radius:999px;
+    background:#050604;
+  }
+  .phone::after{
+    content:"";
+    position:absolute;
+    z-index:7;
+    top:31px;
+    left:50%;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    transform:translateX(38px);
+    background:#f49a28;
+  }
+  .phone-photo{
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 50% 34%, rgba(255,255,255,.08), transparent 10rem),
+      linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.14) 38%, rgba(0,0,0,.48) 62%, rgba(0,0,0,.78) 100%),
+      url("neuro-assets/mihail.webp") center 22%/cover no-repeat;
+    filter:saturate(.96);
+  }
+  .phone-ui{
+    position:absolute;
+    inset:0;
+    z-index:4;
+    padding:30px 24px 26px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    text-align:center;
+  }
+  .phone-status{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:rgba(255,255,255,.9);
+    font-size:16px;
+    line-height:1;
+    font-weight:800;
+  }
+  .phone-status-icons{
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+  .phone-status-icons span{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .call-head{padding-top:156px}
+  .call-time{
+    font-size:40px;
+    line-height:1;
+    font-weight:800;
+    color:#fff8e8;
+    text-shadow:0 4px 18px rgba(0,0,0,.35);
+  }
+  .caller{
+    margin-top:18px;
+    font-size:48px;
+    line-height:1;
+    font-weight:500;
+    color:#fff8e8;
+    text-shadow:0 3px 14px rgba(0,0,0,.55);
+  }
+  .caller-sub{
+    margin-top:8px;
+    color:#fff8e8;
+    font:700 15px/1.25 "Golos Text",system-ui,sans-serif;
+    text-shadow:0 3px 14px rgba(0,0,0,.5);
+  }
+  .wave{
+    height:48px;
+    margin-top:18px;
+    opacity:.74;
+    background:repeating-linear-gradient(90deg, rgba(255,248,232,.72) 0 5px, transparent 5px 14px);
+    mask-image:linear-gradient(180deg, transparent, #000 44%, transparent);
+  }
+  .call-controls{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    row-gap:22px;
+    column-gap:18px;
+  }
+  .control{
+    display:grid;
+    justify-items:center;
+    gap:9px;
+    color:#fff8e8;
+    font:700 14px/1 "Golos Text",system-ui,sans-serif;
+  }
+  .control i{
+    width:72px;height:72px;border-radius:50%;
+    display:grid;place-items:center;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.28);
+    box-shadow:inset 0 1px 12px rgba(255,255,255,.14), 0 12px 30px rgba(0,0,0,.22);
+    backdrop-filter:blur(9px);
+    font-style:normal;
+    font-size:24px;
+  }
+  .control.end i{
+    background:#d82a24;
+    border:0;
+    box-shadow:0 12px 28px rgba(216,42,36,.28);
+  }
+  .section{padding:96px 0}
+  .section.light{background:#f2f4ef;color:#090a08}
+
+  .pocket-section{
+    padding:96px 0;
+    background:
+      radial-gradient(circle at 80% 12%, rgba(200,255,46,.14), transparent 26rem),
+      linear-gradient(135deg, #090a08 0%, #111713 56%, #090a08 100%);
+    color:#fff;
+  }
+  .pocket{
+    display:grid;
+    grid-template-columns:minmax(0,.94fr) minmax(360px,1.06fr);
+    gap:42px;
+    align-items:center;
+  }
+  .pocket-copy h2{
+    margin-top:18px;
+    font-size:58px;
+    line-height:1.02;
+    font-weight:700;
+    max-width:650px;
+  }
+  .pocket-copy h2 span{color:var(--acid)}
+  .pocket-copy p{
+    margin-top:20px;
+    max-width:560px;
+    color:#d8ded1;
+    font-size:20px;
+    line-height:1.42;
+    font-weight:700;
+  }
+  .pocket-points{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:28px;
+  }
+  .pocket-point{
+    min-height:116px;
+    border-radius:24px;
+    padding:18px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 18px 42px rgba(0,0,0,.14);
+  }
+  .pocket-point b{
+    display:block;
+    color:#6f9900;
+    font-size:28px;
+    line-height:1;
+    margin-bottom:16px;
+  }
+  .pocket-point span{
+    color:#eef4e8;
+    font-size:14px;
+    line-height:1.25;
+    font-weight:800;
+  }
+  .pocket-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
+  }
+  .hug-card{
+    position:relative;
+    min-height:640px;
+    border-radius:42px;
+    overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(9,10,8,.02), rgba(9,10,8,.16)),
+      #dfe3da;
+    box-shadow:0 30px 80px rgba(9,10,8,.16);
+  }
+  .hug-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 35%;
+  }
+  .hug-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, transparent 44%, rgba(9,10,8,.18) 100%);
+  }
+  .hug-bubble{
+    position:absolute;
+    z-index:2;
+    top:34px;
+    left:34px;
+    max-width:230px;
+    border-radius:28px 28px 28px 8px;
+    padding:18px 20px;
+    background:var(--acid);
+    color:#050604;
+    font-size:28px;
+    line-height:1;
+    font-weight:900;
+    box-shadow:0 20px 48px rgba(200,255,46,.28);
+  }
+  .hug-bubble::after{
+    content:"";
+    position:absolute;
+    left:18px;
+    bottom:-12px;
+    width:24px;
+    height:24px;
+    background:var(--acid);
+    clip-path:polygon(0 0, 100% 0, 0 100%);
+  }
+  .section-title{max-width:850px;margin:0 auto 42px;text-align:center;display:grid;justify-items:center;gap:16px}
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    min-height:30px;
+    border-radius:999px;
+    padding:0 13px;
+    background:var(--acid);
+    color:#050604;
+    font-size:13px;
+    font-weight:900;
+  }
+  .section-title h2{
+    font-size:56px;
+    line-height:1.04;
+    font-weight:700;
+  }
+  .section-title h2 span{color:var(--acid)}
+  .light .section-title h2 span{color:#6e9800}
+  .section-title p{
+    max-width:670px;
+    color:var(--muted);
+    font:600 18px/1.48 "Golos Text",system-ui,sans-serif;
+  }
+
+  .testimonials{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:18px;
+    align-items:stretch;
+  }
+  .audio-showcase{
+    min-height:520px;
+    border-radius:42px;
+    overflow:hidden;
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(9,10,8,.04), rgba(9,10,8,.9)),
+      url("neuro-assets/declaration-showcase.jpg") center/cover no-repeat;
+    color:#fff;
+    border:1px solid var(--line);
+  }
+  .audio-showcase::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(9,10,8,.08) 0%, rgba(9,10,8,.22) 38%, rgba(9,10,8,.9) 100%),
+      linear-gradient(90deg, rgba(9,10,8,.1) 0%, transparent 42%, rgba(9,10,8,.18) 100%);
+    z-index:1;
+  }
+  .declaration-visual{
+    position:absolute;
+    inset:24px;
+    z-index:0;
+    border-radius:28px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #111a18, #050604 58%);
+    overflow:hidden;
+  }
+  .declaration-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(90deg, transparent 0 64%, rgba(200,255,46,.12) 64.2%, transparent 64.6%),
+      linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 88px);
+    opacity:.8;
+  }
+  .declaration-screen{
+    position:absolute;
+    left:34px;
+    top:34px;
+    right:34px;
+    height:185px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.16);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.02)),
+      #111613;
+    box-shadow:0 24px 70px rgba(0,0,0,.34);
+  }
+  .declaration-title{
+    position:absolute;
+    left:24px;
+    top:22px;
+    color:#fff;
+    font-size:38px;
+    line-height:.9;
+    font-weight:800;
+    text-transform:uppercase;
+  }
+  .declaration-title span{display:block;color:var(--acid)}
+  .declaration-play{
+    position:absolute;
+    right:28px;
+    top:28px;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:var(--acid);
+    color:#050604;
+    font-size:24px;
+    font-weight:900;
+  }
+  .declaration-doc{
+    position:absolute;
+    right:44px;
+    bottom:34px;
+    width:210px;
+    min-height:190px;
+    border-radius:22px;
+    padding:24px 22px;
+    background:#f4f6ef;
+    color:#090a08;
+    transform:rotate(-5deg);
+    box-shadow:0 28px 80px rgba(0,0,0,.5);
+  }
+  .declaration-doc b{
+    display:block;
+    font-size:24px;
+    line-height:1;
+    font-weight:800;
+    text-transform:uppercase;
+  }
+  .declaration-doc span{
+    display:block;
+    height:8px;
+    margin-top:16px;
+    border-radius:99px;
+    background:#090a08;
+    opacity:.18;
+  }
+  .declaration-chair{
+    position:absolute;
+    left:58px;
+    bottom:34px;
+    width:132px;
+    height:92px;
+    border-radius:28px 28px 16px 16px;
+    background:#5a231d;
+    box-shadow:0 14px 0 #32120f, 0 34px 60px rgba(0,0,0,.45);
+  }
+  .declaration-chair::before,
+  .declaration-chair::after{
+    content:"";
+    position:absolute;
+    bottom:-26px;
+    width:12px;
+    height:32px;
+    border-radius:999px;
+    background:#24100e;
+  }
+  .declaration-chair::before{left:24px}
+  .declaration-chair::after{right:24px}
+  .declaration-live{
+    position:absolute;
+    left:206px;
+    bottom:72px;
+    min-height:34px;
+    border-radius:999px;
+    padding:0 14px;
+    display:inline-flex;
+    align-items:center;
+    background:rgba(255,255,255,.1);
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+    border:1px solid rgba(255,255,255,.14);
+  }
+  .declaration-live::before{
+    content:"";
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    margin-right:8px;
+    background:#e51524;
+    box-shadow:0 0 14px rgba(229,21,36,.75);
+  }
+  .audio-showcase-content{
+    position:absolute;
+    left:34px;
+    right:34px;
+    bottom:34px;
+    z-index:2;
+  }
+  .audio-showcase h2{
+    max-width:580px;
+    font-size:48px;
+    line-height:1.04;
+    font-weight:700;
+  }
+  .audio-showcase h2 span{color:var(--acid)}
+  .audio-showcase p{
+    margin-top:16px;
+    max-width:560px;
+    color:#d7dbcf;
+    font:600 17px/1.45 "Golos Text",system-ui,sans-serif;
+  }
+  .audio-player{
+    appearance:none;
+    margin-top:20px;
+    display:inline-grid;
+    grid-template-columns:46px 1fr auto;
+    align-items:center;
+    gap:12px;
+    min-height:58px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;
+    padding:6px 16px 6px 6px;
+    background:rgba(5,6,4,.72);
+    color:#fff;
+    font-family:"Golos Text",system-ui,sans-serif;
+    text-align:left;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+  }
+  .audio-player .play-icon,
+  .review-audio .play-icon{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:var(--acid);
+    color:#050604;
+    font-size:16px;
+    font-weight:900;
+    box-shadow:0 0 22px rgba(200,255,46,.28);
+  }
+  .audio-player b,
+  .review-audio b{
+    display:block;
+    font-size:14px;
+    line-height:1.1;
+    font-weight:900;
+  }
+  .audio-player small,
+  .review-audio small{
+    display:block;
+    margin-top:4px;
+    color:#9ea697;
+    font-size:12px;
+    line-height:1;
+    font-weight:700;
+  }
+  .audio-player .duration{
+    color:var(--acid);
+    font-size:13px;
+    font-weight:900;
+  }
+  .audio-player.is-playing,
+  .review-audio.is-playing{
+    border-color:rgba(200,255,46,.72);
+    box-shadow:0 0 0 1px rgba(200,255,46,.24);
+  }
+  .audio-player.is-waiting,
+  .review-audio.is-waiting{
+    opacity:.82;
+  }
+  .review-list{display:grid;gap:14px}
+  .review{
+    min-height:116px;
+    border-radius:28px;
+    background:#fff;
+    color:#090a08;
+    padding:22px;
+    display:grid;
+    grid-template-columns:54px 1fr;
+    gap:16px;
+    align-items:start;
+    box-shadow:0 18px 48px rgba(9,10,8,.08);
+  }
+  .avatar{
+    width:54px;height:54px;border-radius:50%;
+    display:grid;place-items:center;
+    object-fit:cover;
+    background:#dfe7d8;
+    border:3px solid #c8ff2e;
+    box-shadow:0 10px 26px rgba(9,10,8,.16);
+  }
+  .review blockquote{
+    margin:0 0 10px;
+    font-size:24px;
+    line-height:1.05;
+    font-weight:800;
+  }
+  .review-person{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    margin-bottom:12px;
+    color:#6f766b;
+    font-size:13px;
+    line-height:1.2;
+    font-weight:700;
+  }
+  .review-person b{
+    color:#090a08;
+    font-weight:800;
+  }
+  .review-person span{
+    min-height:24px;
+    display:inline-flex;
+    align-items:center;
+    border-radius:999px;
+    padding:0 10px;
+    background:#eff8d9;
+    color:#5f8600;
+  }
+  .review-audio{
+    appearance:none;
+    width:100%;
+    display:grid;
+    grid-template-columns:34px 1fr auto;
+    align-items:center;
+    gap:10px;
+    margin-top:12px;
+    border:1px solid #e0e6d8;
+    border-radius:999px;
+    padding:5px 12px 5px 5px;
+    background:#f6f8f0;
+    color:#090a08;
+    font-family:"Golos Text",system-ui,sans-serif;
+    text-align:left;
+    cursor:pointer;
+  }
+  .review-audio .play-icon{
+    width:34px;
+    height:34px;
+    font-size:12px;
+    box-shadow:none;
+  }
+  .review-audio .duration{
+    color:#6f9900;
+    font-size:12px;
+    font-weight:900;
+  }
+
+  .summary{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) minmax(420px, 540px);
+    gap:56px;
+    align-items:center;
+  }
+  .summary-copy h2{
+    font-size:54px;
+    line-height:1.04;
+    font-weight:700;
+  }
+  .summary-copy h2 span{color:var(--acid)}
+  .summary-copy p{
+    margin-top:18px;
+    color:#d7dbcf;
+    font:600 18px/1.5 "Golos Text",system-ui,sans-serif;
+  }
+  .call-depth-note{
+    margin-top:22px;
+    border-left:4px solid var(--acid);
+    padding:4px 0 4px 18px;
+    color:#f1f4eb;
+    font:700 18px/1.45 "Golos Text",system-ui,sans-serif;
+  }
+  .summary-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:28px;
+  }
+  .report-preview{
+    width:100%;
+    max-width:540px;
+    justify-self:end;
+    border-radius:34px;
+    overflow:hidden;
+    background:#f7f8f3;
+    color:#242622;
+    box-shadow:0 28px 80px rgba(0,0,0,.28);
+  }
+  .report-head{
+    background:#0b1110;
+    color:#fff;
+    padding:24px;
+  }
+  .report-kicker{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    color:var(--acid);
+    font-size:11px;
+    line-height:1.2;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+  .report-hero{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:16px;
+    align-items:center;
+    margin-top:22px;
+  }
+  .report-avatar{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--acid);
+  }
+  .report-name{
+    color:#8b928a;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+  .report-title{
+    margin-top:8px;
+    font-size:34px;
+    line-height:.96;
+    font-weight:800;
+    text-transform:uppercase;
+  }
+  .report-title span{color:var(--acid)}
+  .report-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid rgba(255,255,255,.12);
+    background:#101615;
+  }
+  .report-stat{
+    padding:14px 16px;
+    min-height:76px;
+    border-right:1px solid rgba(255,255,255,.1);
+  }
+  .report-stat:last-child{border-right:0}
+  .report-stat span{
+    display:block;
+    margin-bottom:8px;
+    color:#8b928a;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .report-stat b{
+    color:#fff;
+    font-size:12px;
+    line-height:1.25;
+    font-weight:800;
+  }
+  .report-body{padding:22px 24px 24px}
+  .report-letter h3{
+    font-size:20px;
+    line-height:1.1;
+    margin:0 0 12px;
+  }
+  .report-letter p{
+    color:#454a43;
+    font-size:13px;
+    line-height:1.48;
+    font-weight:500;
+  }
+  .report-label{
+    margin:22px 0 10px;
+    color:#9a9f98;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+  .report-callout{
+    border-left:4px solid var(--acid);
+    padding:4px 0 4px 16px;
+    color:#333832;
+    font-size:13px;
+    line-height:1.42;
+    font-weight:600;
+  }
+  .report-query{
+    border-radius:0;
+    background:#eeeeda;
+    padding:14px 16px;
+    color:#3c403a;
+    font-size:13px;
+    line-height:1.35;
+    font-style:italic;
+    font-weight:600;
+  }
+  .report-insights{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:12px;
+  }
+  .report-insight{
+    border-left:4px solid var(--acid);
+    padding-left:14px;
+  }
+  .report-insight b{
+    display:block;
+    margin-bottom:8px;
+    color:#1d211d;
+    font-size:14px;
+    line-height:1.15;
+    text-transform:uppercase;
+  }
+  .report-insight p{
+    color:#4c514a;
+    font-size:13px;
+    line-height:1.38;
+    font-weight:500;
+  }
+  .report-next{
+    margin-top:18px;
+    background:#0b1110;
+    color:#fff;
+    padding:18px 20px;
+  }
+  .report-next span{
+    display:block;
+    margin-bottom:10px;
+    color:var(--acid);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .report-next b{
+    display:block;
+    font-size:20px;
+    line-height:1.12;
+  }
+  .report-declaration{
+    margin-top:14px;
+    min-height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px 16px;
+    background:var(--acid);
+    color:#050604;
+    font-size:14px;
+    line-height:1.2;
+    font-weight:900;
+    text-align:center;
+    text-transform:uppercase;
+  }
+
+  .result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+  }
+  .result-card{
+    min-height:150px;
+    border-radius:24px;
+    background:#fff;
+    padding:22px;
+    color:#090a08;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:0 16px 42px rgba(9,10,8,.06);
+  }
+  .result-card b{color:#6f9900;font-size:13px}
+  .result-card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:26px;
+  }
+  .result-icon{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:#eff8d9;
+    color:#6f9900;
+  }
+  .result-icon svg{
+    width:24px;
+    height:24px;
+    stroke:currentColor;
+    stroke-width:2.2;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  .result-card h3{font-size:22px;line-height:1.1}
+  .promise-band{
+    margin-top:18px;
+    border-radius:36px;
+    background:#090a08;
+    color:#fff;
+    min-height:430px;
+    padding:42px;
+    display:grid;
+    grid-template-columns:minmax(0, .95fr) minmax(360px, 1.05fr);
+    gap:30px;
+    align-items:stretch;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);
+  }
+  .promise-copy{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+  }
+  .promise-band h2{
+    max-width:540px;
+    font-size:48px;
+    line-height:1.04;
+    font-weight:700;
+  }
+  .promise-band h2 span{color:var(--acid)}
+  .promise-copy p{
+    max-width:470px;
+    margin-top:18px;
+    color:#d7dbcf;
+    font-size:18px;
+    line-height:1.45;
+    font-weight:700;
+  }
+  .verb-row{
+    margin:28px 0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .verb-row span{
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.16);
+    padding:10px 14px;
+    background:rgba(255,255,255,.07);
+    font-weight:900;
+  }
+  .promise-visual{
+    min-height:340px;
+    border-radius:28px;
+    position:relative;
+    overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(9,10,8,.06), rgba(9,10,8,.78)),
+      url("neuro-assets/youtube.png") center/cover no-repeat;
+  }
+  .promise-visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 78% 20%, rgba(200,255,46,.18), transparent 14rem);
+  }
+  .promise-note{
+    position:absolute;
+    left:24px;
+    right:24px;
+    bottom:24px;
+    z-index:2;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+  }
+  .promise-note span{
+    border-radius:18px;
+    background:rgba(255,255,255,.92);
+    color:#090a08;
+    padding:14px;
+    font-size:14px;
+    line-height:1.1;
+    font-weight:900;
+  }
+
+  .proof-strip{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:18px;
+  }
+  .proof{
+    border-radius:24px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.05);
+    padding:22px;
+  }
+  .proof b{display:block;color:var(--acid);font-size:28px;margin-bottom:8px}
+  .proof p{color:#d7dbcf;font:600 15px/1.45 "Golos Text",system-ui,sans-serif}
+
+  .chatgpt-list{
+    max-width:880px;
+    margin:0 auto;
+    display:grid;
+    gap:12px;
+  }
+  .difference{
+    display:grid;
+    grid-template-columns:40px 1fr;
+    gap:16px;
+    align-items:start;
+    border-radius:24px;
+    background:#fff;
+    color:#090a08;
+    padding:22px;
+  }
+  .difference b{
+    width:40px;height:40px;border-radius:50%;
+    display:grid;place-items:center;
+    background:var(--acid);
+  }
+  .difference h3{font-size:24px;margin-bottom:6px}
+  .difference p{color:#50564d;font:600 16px/1.45 "Golos Text",system-ui,sans-serif}
+
+  .pay{padding:86px 0 78px}
+  .pay-card{
+    border-radius:42px;
+    background:#f4f6ef;
+    color:#090a08;
+    padding:42px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:28px;
+    align-items:center;
+  }
+  .pay-card h2{font-size:46px;line-height:1.04;font-weight:700}
+  .pay-card p{margin-top:14px;color:#4f554d;font:700 17px/1.45 "Golos Text",system-ui,sans-serif}
+  .faq-section{padding:8px 0 86px;background:#090a08}
+  .faq-card{
+    border-radius:46px;
+    background:#f4f4f4;
+    color:#080817;
+    padding:52px 66px 58px;
+  }
+  .faq-card .tag{background:#fff;color:#090a08}
+  .faq-card h2{
+    max-width:760px;
+    margin-top:22px;
+    font-size:58px;
+    line-height:1.08;
+    font-weight:500;
+    letter-spacing:0;
+  }
+  .faq-list{
+    margin-top:52px;
+    border-top:1px solid rgba(0,0,0,.1);
+  }
+  details.faq-item{
+    border-bottom:1px solid rgba(0,0,0,.14);
+  }
+  .faq-item summary{
+    min-height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    list-style:none;
+    cursor:pointer;
+    font-size:24px;
+    line-height:1.18;
+    font-weight:800;
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{
+    content:"+";
+    flex:0 0 auto;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border:1px solid #7a9700;
+    background:var(--acid);
+    color:#090a08;
+    display:grid;
+    place-items:center;
+    font-size:27px;
+    line-height:1;
+    font-weight:400;
+  }
+  .faq-item[open] summary::after{
+    content:"×";
+    background:#fff;
+    color:#7a9700;
+    font-size:24px;
+  }
+  .faq-item p{
+    max-width:760px;
+    margin:0;
+    padding:0 70px 30px 0;
+    color:#333;
+    font-size:16px;
+    line-height:1.65;
+    font-weight:400;
+  }
+  .footer{
+    padding:0 0 48px;
+    background:#090a08;
+    color:#090a08;
+  }
+  .footer-card{
+    border-radius:42px;
+    background:#f4f4f4;
+    padding:42px 46px 32px;
+  }
+  .footer-top{
+    display:grid;
+    grid-template-columns:1.2fr .55fr .8fr;
+    gap:42px;
+    align-items:start;
+    padding-bottom:34px;
+    border-bottom:1px solid rgba(0,0,0,.16);
+  }
+  .footer-logo{
+    width:max-content;
+  }
+  .footer-logo .brand-logo{height:25px}
+  .footer-menu{
+    display:grid;
+    gap:26px;
+    font-size:16px;
+    font-weight:800;
+  }
+  .footer-support h3{
+    margin:0 0 14px;
+    font-size:16px;
+    line-height:1.2;
+  }
+  .support-link{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:12px;
+    font-size:25px;
+    line-height:1;
+    font-weight:900;
+  }
+  .support-icon{
+    width:27px;
+    height:27px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#050604;
+    color:#fff;
+    font-size:14px;
+    line-height:1;
+    flex:0 0 auto;
+  }
+  .footer-bottom{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:24px;
+    padding-top:24px;
+    color:#aaa;
+    font-size:16px;
+    line-height:1.5;
+    font-weight:700;
+  }
+  .legal-links{
+    display:grid;
+    gap:10px;
+  }
+  .footer-year{align-self:start}
+
+  @media (max-width:1020px){
+    .container,.nav{width:min(calc(100% - 40px), var(--wrap))}
+    .nav-links{display:none}
+    .hero{padding-bottom:64px}
+    .hero-grid,.testimonials,.summary{grid-template-columns:1fr}
+    .hero h1{font-size:58px;margin-top:30px}
+    .phone-wrap{justify-self:center}
+    .pocket{grid-template-columns:1fr}
+    .hug-card{order:-1}
+    .result-grid,.proof-strip{grid-template-columns:1fr 1fr}
+    .pay-card{grid-template-columns:1fr}
+    .faq-card{padding:42px 34px}
+    .footer-top{grid-template-columns:1fr 1fr}
+    .footer-logo{grid-column:1 / -1}
+  }
+  @media (max-width:620px){
+    .container,.nav{width:calc(100% - 28px)}
+    .nav{top:16px}
+    .brand-logo{height:22px}
+    .nav .btn{min-height:38px;padding:0 13px;font-size:12px}
+    .hero{min-height:0;padding:82px 0 54px}
+    .hero::before{
+      background:
+        radial-gradient(circle at 72% 72%, rgba(200,255,46,.18), transparent 15rem),
+        radial-gradient(circle at 78% 60%, rgba(142,210,245,.14), transparent 17rem),
+        linear-gradient(180deg, rgba(7,12,11,.96) 0%, rgba(8,17,15,.86) 58%, #08100f 100%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, transparent 1px 58px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 58px),
+        linear-gradient(135deg, #08100f 0%, #102926 52%, #08100f 100%);
+    }
+    .hero h1{
+      margin-top:24px;
+      font-size:35px;
+      line-height:.98;
+    }
+    .hero-bullets{gap:10px;margin-top:26px}
+    .hero-bullets li{font-size:15px;line-height:1.28}
+    .hero-actions{margin-top:24px}
+    .hero-actions .btn{width:100%}
+    .phone-wrap{width:min(100%, 342px)}
+    .phone-wrap::before{inset:42px -18px 30px -18px;border-radius:54px}
+    .phone{width:100%;min-height:640px;border-width:9px}
+    .phone-ui{padding:28px 20px 22px}
+    .phone-status{font-size:14px}
+    .call-head{padding-top:134px}
+    .call-time{font-size:34px}
+    .caller{font-size:42px}
+    .control i{width:62px;height:62px;font-size:21px}
+    .control{font-size:12px}
+    .section{padding:64px 0}
+    .pocket-section{padding:64px 0}
+    .pocket{gap:28px}
+    .pocket-copy h2{font-size:36px}
+    .pocket-copy p{font-size:17px}
+    .pocket-points{grid-template-columns:1fr}
+    .hug-card{min-height:500px;border-radius:28px}
+    .hug-card img{object-position:center 28%}
+    .hug-bubble{top:22px;left:22px;font-size:22px}
+    .section-title{
+      text-align:left;
+      justify-items:start;
+      margin-bottom:28px;
+    }
+    .section-title h2,.summary-copy h2,.promise-band h2,.pay-card h2{font-size:36px}
+    .section-title p{font-size:16px}
+    .audio-showcase{
+      min-height:520px;
+      border-radius:28px;
+      background:
+        linear-gradient(180deg, rgba(9,10,8,.04), rgba(9,10,8,.9)),
+        url("neuro-assets/declaration-showcase.jpg") 45% center/cover no-repeat;
+    }
+    .audio-showcase-content{left:22px;right:22px;bottom:24px}
+    .audio-showcase h2{font-size:34px}
+    .audio-player{
+      width:100%;
+      grid-template-columns:42px 1fr auto;
+      padding-right:12px;
+    }
+    .audio-player .play-icon{width:42px;height:42px}
+    .declaration-visual{inset:14px;border-radius:22px}
+    .declaration-screen{left:18px;right:18px;top:18px;height:150px;border-radius:20px}
+    .declaration-title{font-size:28px;left:18px;top:20px}
+    .declaration-play{width:44px;height:44px;right:18px;top:20px;font-size:18px}
+    .declaration-doc{right:18px;bottom:36px;width:166px;min-height:150px;padding:18px;opacity:.88}
+    .declaration-doc b{font-size:18px}
+    .declaration-chair{left:24px;bottom:50px;width:104px;height:74px}
+    .declaration-live{left:24px;bottom:142px}
+    .review{grid-template-columns:46px 1fr;padding:18px;border-radius:22px}
+    .avatar{width:46px;height:46px}
+    .review blockquote{font-size:20px}
+    .call-depth-note{font-size:16px}
+    .report-preview{border-radius:28px;max-width:none}
+    .report-head{padding:22px}
+    .report-kicker{font-size:9px}
+    .report-hero{grid-template-columns:54px 1fr;gap:14px;margin-top:22px}
+    .report-avatar{width:54px;height:54px}
+    .report-title{font-size:30px}
+    .report-stats{grid-template-columns:1fr 1fr}
+    .report-stat{min-height:86px;padding:14px}
+    .report-body{padding:22px}
+    .report-insights{grid-template-columns:1fr}
+    .report-next b{font-size:20px}
+    .result-grid,.proof-strip{grid-template-columns:1fr}
+    .promise-band{
+      grid-template-columns:1fr;
+      border-radius:28px;
+      padding:24px;
+      min-height:0;
+      gap:22px;
+    }
+    .promise-copy p{font-size:16px}
+    .promise-visual{min-height:300px;border-radius:22px}
+    .promise-note{grid-template-columns:1fr;left:18px;right:18px;bottom:18px}
+    .pay-card{border-radius:28px;padding:24px}
+    .faq-section{padding:0 0 54px}
+    .faq-card{border-radius:28px;padding:28px 20px 26px}
+    .faq-card h2{font-size:35px;line-height:1.1}
+    .faq-list{margin-top:28px}
+    .faq-item summary{min-height:66px;font-size:18px}
+    .faq-item p{padding:0 0 22px 0;font-size:15px}
+    .footer{padding-bottom:28px}
+    .footer-card{border-radius:28px;padding:28px 24px}
+    .footer-top{grid-template-columns:1fr;gap:28px}
+    .footer-menu{gap:18px}
+    .support-link{font-size:22px}
+    .footer-bottom{grid-template-columns:1fr;font-size:15px}
+  }
+</style>
+</head>
+<body>
+<main>
+  <svg width="0" height="0" style="position:absolute;visibility:hidden" aria-hidden="true" focusable="false">
+    <symbol id="icon-strategy" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 16l3-4 3 2 4-7"/><path d="M17 7h3v3"/></symbol>
+    <symbol id="icon-position" viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="icon-niche" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M7 12h10"/><path d="M10 18h4"/><path d="M6 3v3"/><path d="M18 3v3"/></symbol>
+    <symbol id="icon-clients" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="10" r="2.5"/><path d="M15.5 15.5A4.5 4.5 0 0 1 21 19"/></symbol>
+    <symbol id="icon-profit" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M17 7.5c0-2-2.2-3.5-5-3.5S7 5.5 7 7.5 9.2 11 12 11s5 1.5 5 3.5-2.2 3.5-5 3.5-5-1.5-5-3.5"/><path d="M18 5l2-2"/><path d="M20 3v4h-4"/></symbol>
+    <symbol id="icon-structure" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4"/><path d="M6 16v-4h12v4"/></symbol>
+    <symbol id="icon-goals" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/><path d="M18 6l3-3"/><path d="M21 3v4h-4"/></symbol>
+    <symbol id="icon-conflict" viewBox="0 0 24 24"><path d="M7 11l4 4 6-7"/><path d="M4 19c2.8-1.2 4.8-1.2 7 0s4.2 1.2 7 0"/><path d="M5 6h6"/><path d="M13 6h6"/></symbol>
+    <symbol id="icon-crisis" viewBox="0 0 24 24"><path d="M4 16l5-5 3 3 7-8"/><path d="M15 6h4v4"/><path d="M4 20h16"/></symbol>
+  </svg>
+  <nav class="nav" aria-label="Основная навигация">
+    <a class="brand" href="#top" aria-label="НейроГребенюк"><img class="brand-logo" src="neuro-assets/neurogrebenuk-logo.png" alt="НейроГребенюк"></a>
+    <div class="nav-links">
+      <a href="#listen">Примеры</a>
+      <a href="#summary">PDF</a>
+      <a href="#result">Результат</a>
+      <a href="#chatgpt">Отличия</a>
+    </div>
+    <a class="btn" href="#pay">Начать разбор</a>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-main">
+        <span class="eyebrow">Голосовой AI-агент Михаила Гребенюка</span>
+        <h1>Позвони на <span>+7 495 ...</span> и получи мой разбор прямо сейчас</h1>
+        <ul class="hero-bullets">
+          <li>ИИ обучен на тысячах моих бизнес-разборов.</li>
+          <li>Задаешь вопросы — получаешь ответы моим голосом.</li>
+          <li>Работает без интернета даже в регионах с блокировками.</li>
+          <li>Нужен телефон, GSM-связь и твое желание вырасти.</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn" href="#pay">Начать разбор прямо сейчас</a>
+          <a class="btn ghost" href="#listen">Послушать примеры</a>
+        </div>
+      </div>
+      <div class="phone-wrap" aria-label="Звонок Михаилу Гребенюку">
+        <div class="phone">
+          <div class="phone-photo"></div>
+          <div class="phone-ui">
+            <div class="phone-status" aria-hidden="true">
+              <span>18:04</span>
+              <span class="phone-status-icons"><span>▮▮▮</span><span>⌁</span><span>59</span></span>
+            </div>
+            <div class="call-head">
+              <div class="call-time">43:20</div>
+              <div class="caller">Михаил</div>
+              <div class="caller-sub">разбор уже идет</div>
+              <div class="wave" aria-hidden="true"></div>
+            </div>
+            <div class="call-controls">
+              <span class="control"><i>◖</i>Аудио</span>
+              <span class="control"><i>?</i>Помощь</span>
+              <span class="control"><i>◌</i>Тихо</span>
+              <span class="control"><i>•••</i>Еще</span>
+              <span class="control end"><i>⌕</i>Сброс</span>
+              <span class="control"><i>#</i>Клавиши</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="listen">
+    <div class="container">
+      <div class="section-title">
+        <span class="tag">Фокус-группа</span>
+        <h2>Послушай примеры реальных разборов</h2>
+        <p>Мы дали агенту живых предпринимателей и записали полные разговоры в нормальном качестве: не демо на 30 секунд, а настоящие разборы.</p>
+      </div>
+      <div class="testimonials">
+        <div class="audio-showcase">
+          <div class="audio-showcase-content">
+            <span class="tag">3-4 полных разбора</span>
+            <h2>«Офигеть, это <span>работает</span>»</h2>
+            <p>Люди слышат мой голос, отвечают на вопросы и получают структуру, как на живом разборе.</p>
+            <button class="audio-player" type="button" data-audio-src="" aria-label="Воспроизвести пример полного разбора">
+              <span class="play-icon">▶</span>
+              <span><b>Послушать полный разбор</b><small>аудиодорожка будет подключена</small></span>
+              <span class="duration">43:20</span>
+            </button>
+          </div>
+        </div>
+        <div class="review-list">
+          <article class="review">
+            <img class="avatar" src="neuro-assets/review-alexey.jpg" alt="Алексей, владелец performance-агентства">
+            <div>
+              <blockquote>«Офигеть, это работает»</blockquote>
+              <div class="review-person"><b>Алексей</b><span>performance-агентство</span></div>
+              <button class="review-audio" type="button" data-audio-src="" aria-label="Воспроизвести разбор Алексея">
+                <span class="play-icon">▶</span><span><b>Воспроизвести</b><small>полный разговор</small></span><span class="duration">38:10</span>
+              </button>
+            </div>
+          </article>
+          <article class="review">
+            <img class="avatar" src="neuro-assets/review-marina.jpg" alt="Марина, основательница студии интерьеров">
+            <div>
+              <blockquote>«Вау, круто. Он реально докапывается»</blockquote>
+              <div class="review-person"><b>Марина</b><span>студия интерьеров</span></div>
+              <button class="review-audio" type="button" data-audio-src="" aria-label="Воспроизвести разбор Марины">
+                <span class="play-icon">▶</span><span><b>Воспроизвести</b><small>полный разговор</small></span><span class="duration">41:05</span>
+              </button>
+            </div>
+          </article>
+          <article class="review">
+            <img class="avatar" src="neuro-assets/review-kirill.jpg" alt="Кирилл, владелец онлайн-школы">
+            <div>
+              <blockquote>«Я за 40 минут понял, куда мне идти»</blockquote>
+              <div class="review-person"><b>Кирилл</b><span>онлайн-школа</span></div>
+              <button class="review-audio" type="button" data-audio-src="" aria-label="Воспроизвести разбор Кирилла">
+                <span class="play-icon">▶</span><span><b>Воспроизвести</b><small>полный разговор</small></span><span class="duration">40:32</span>
+              </button>
+            </div>
+          </article>
+          <article class="review">
+            <img class="avatar" src="neuro-assets/review-elena.jpg" alt="Елена, сеть салонов красоты">
+            <div>
+              <blockquote>«Не чатик. Именно разговор»</blockquote>
+              <div class="review-person"><b>Елена</b><span>сеть салонов красоты</span></div>
+              <button class="review-audio" type="button" data-audio-src="" aria-label="Воспроизвести разбор Елены">
+                <span class="play-icon">▶</span><span><b>Воспроизвести</b><small>полный разговор</small></span><span class="duration">36:48</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="summary">
+    <div class="container summary">
+      <div class="summary-copy">
+        <span class="tag">После звонка</span>
+        <h2>В конце разговора ты получишь PDF с саммари и прототипом <span>Декларации</span></h2>
+        <p>Я не оставлю тебя с «ну подумай». После звонка будет короткое резюме: что болит, где ограничение, какой следующий шаг и какую декларацию можно поставить.</p>
+        <div class="call-depth-note">До 60 минут персонального разговора со мной: я задам вопросы, найду узкое место и помогу выбрать следующий шаг для роста.</div>
+        <div class="proof-strip">
+          <div class="proof"><b>60</b><p>до 60 минут диалога за один звонок</p></div>
+          <div class="proof"><b>∞</b><p>звони хоть каждый день — я отвечу</p></div>
+          <div class="proof"><b>Память</b><p>каждый следующий звонок я помню, о чем мы говорили</p></div>
+        </div>
+        <div class="summary-actions">
+          <a class="btn" href="#pay">Хочу разбор</a>
+        </div>
+      </div>
+      <div class="report-preview" aria-label="Пример PDF-отчета после разбора">
+        <div class="report-head">
+          <div class="report-kicker"><span>AI-версия Михаила Гребенюка · разбор бизнеса</span><span>PDF</span></div>
+          <div class="report-hero">
+            <img class="report-avatar" src="neuro-assets/mihail.webp" alt="Михаил Гребенюк">
+            <div>
+              <div class="report-name">Михаил Гребенюк</div>
+              <div class="report-title">Наш разбор<br>с <span>тобой</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="report-stats">
+          <div class="report-stat"><span>Бизнес</span><b>ниша, продукт, рынок</b></div>
+          <div class="report-stat"><span>Масштаб</span><b>команда, оборот, стаж</b></div>
+          <div class="report-stat"><span>Ограничение</span><b>что реально стопорит рост</b></div>
+          <div class="report-stat"><span>Цель</span><b>следующая точка</b></div>
+        </div>
+        <div class="report-body">
+          <div class="report-letter">
+            <h3>Дорогой предприниматель,</h3>
+            <p>в отчете я собираю разговор в управленческий документ: без воды, с твоими цифрами, контекстом и честным выводом.</p>
+          </div>
+          <div class="report-label">Что я услышал о тебе</div>
+          <div class="report-callout">Ситуация, главный симптом, повторяющийся сценарий и место, где ты сам уперся в потолок.</div>
+          <div class="report-label">Твой запрос</div>
+          <div class="report-query">«Хочу понять, где узкое место, какой шаг даст рост и что я должен сделать в ближайший цикл»</div>
+          <div class="report-label">Вот в чем прикол</div>
+          <div class="report-insights">
+            <div class="report-insight"><b>Не проблема рынка</b><p>Отделяю внешние обстоятельства от управленческой причины внутри компании.</p></div>
+            <div class="report-insight"><b>Не еще один совет</b><p>Фиксирую один шаг, который можно проверить действием, а не обсуждением.</p></div>
+          </div>
+          <div class="report-next">
+            <span>Твой следующий шаг</span>
+            <b>Один конкретный ход, который меняет траекторию</b>
+          </div>
+          <div class="report-declaration">Декларация · 1 месяц · артефакт результата</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="result">
+    <div class="container">
+      <div class="section-title">
+        <span class="tag">Образ результата</span>
+        <h2>Один звонок мне — и мы определим следующий шаг, чтобы вырасти</h2>
+      </div>
+      <div class="result-grid">
+        <article class="result-card"><div class="result-card-top"><b>01</b><span class="result-icon"><svg><use href="#icon-strategy"/></svg></span></div><h3>Разработаю маркет-стратегию</h3></article>
+        <article class="result-card"><div class="result-card-top"><b>02</b><span class="result-icon"><svg><use href="#icon-position"/></svg></span></div><h3>Определю позиционирование и УТП</h3></article>
+        <article class="result-card"><div class="result-card-top"><b>03</b><span class="result-icon"><svg><use href="#icon-niche"/></svg></span></div><h3>Помогу выбрать нишу</h3></article>
+        <article class="result-card"><div class="result-card-top"><b>04</b><span class="result-icon"><svg><use href="#icon-clients"/></svg></span></div><h3>Найду гору новых клиентов</h3></article>
+        <article class="result-card"><div class="result-card-top"><b>05</b><span class="result-icon"><svg><use href="#icon-profit"/></svg></span></div><h3>Увеличу прибыль</h3></article>
+        <article class="result-card"><div class="result-card-top"><b>06</b><span class="result-icon"><svg><use href="#icon-structure"/></svg></span></div><h3>Пересоберу оргструктуру</h3></article>
+        <article class="result-card"><div class="result-card-top"><b>07</b><span class="result-icon"><svg><use href="#icon-goals"/></svg></span></div><h3>Помогу поставить цели</h3></article>
+        <article class="result-card"><div class="result-card-top"><b>08</b><span class="result-icon"><svg><use href="#icon-conflict"/></svg></span></div><h3>Стану союзником в конфликтах</h3></article>
+        <article class="result-card"><div class="result-card-top"><b>09</b><span class="result-icon"><svg><use href="#icon-crisis"/></svg></span></div><h3>Помогу выйти из кризиса</h3></article>
+      </div>
+      <div class="promise-band">
+        <div class="promise-copy">
+          <span class="tag">Один звонок</span>
+          <h2>И мы <span>вытащим следующий ход</span> из любого кризиса</h2>
+          <p>Не будем размазывать стратегию на год. За один разговор соберем фокус: что пересобрать, что выбрать, что поставить как цель и где перестать сливать рост.</p>
+          <div class="verb-row"><span>пересоберем</span><span>выберем</span><span>поставим</span><span>выйдем из кризиса</span></div>
+          <a class="btn" href="#pay">Купить доступ</a>
+        </div>
+        <div class="promise-visual" aria-label="Атмосфера разбора Михаила Гребенюка">
+          <div class="promise-note">
+            <span>Узкое место</span>
+            <span>Следующий шаг</span>
+            <span>Декларация</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="chatgpt">
+    <div class="container">
+      <div class="section-title">
+        <span class="tag">Отличия</span>
+        <h2>Чем отличается от ChatGPT</h2>
+        <p>Не схема сравнения, а честно по сути: зачем звонить мне, если можно открыть обычный чат.</p>
+      </div>
+      <div class="chatgpt-list">
+        <article class="difference"><b>1</b><div><h3>Это разговор голосом, а не переписка</h3><p>Ты не формулируешь идеальные промпты. Просто звонишь и говоришь, как в живом разборе.</p></div></article>
+        <article class="difference"><b>2</b><div><h3>Ответы в моей логике</h3><p>ИИ обучен на тысячах моих разборов и держит стиль: докопаться, найти ограничение, выбрать действие.</p></div></article>
+        <article class="difference"><b>3</b><div><h3>Работает по GSM</h3><p>Не нужен интернет. Достаточно телефона и связи, даже если сервисы заблокированы или сеть слабая.</p></div></article>
+        <article class="difference"><b>4</b><div><h3>Помнит прошлые звонки</h3><p>Каждый следующий разговор строится на предыдущем контексте, а не начинается с нуля.</p></div></article>
+        <article class="difference"><b>5</b><div><h3>В конце есть саммари и декларация</h3><p>Ты получаешь не поток текста, а управленческий итог и прототип обязательства.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pay" id="pay">
+    <div class="container">
+      <div class="pay-card">
+        <div>
+          <span class="tag">Оплата в боте</span>
+          <h2>Начни разбор прямо сейчас</h2>
+          <p>Кнопка ведет на оплату в боте. После оплаты ты получаешь номер для звонка и можешь начать разговор со мной.</p>
+        </div>
+        <a class="btn dark" href="#">Перейти к оплате</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pocket-section" id="pocket">
+    <div class="container pocket">
+      <div class="pocket-copy">
+        <span class="tag">24/7 рядом</span>
+        <h2>Гребенюк со всем его опытом у тебя <span>в кармане</span></h2>
+        <p>Ты больше не один: у тебя есть я, НейроГребенюк. Можно позвонить в моменте, проговорить хаос и получить следующий шаг без ожидания окна в календаре.</p>
+        <div class="pocket-points">
+          <div class="pocket-point"><b>24/7</b><span>доступен, когда решение нужно сейчас</span></div>
+          <div class="pocket-point"><b>1000+</b><span>разборов в логике Михаила</span></div>
+          <div class="pocket-point"><b>1</b><span>звонок, чтобы вернуть опору</span></div>
+        </div>
+        <div class="pocket-actions">
+          <a class="btn" href="#pay">Хочу разбор</a>
+        </div>
+      </div>
+      <div class="hug-card" aria-label="Михаил Гребенюк тянется обнять">
+        <img src="neuro-assets/mihail-hug.png" alt="Михаил Гребенюк тянется обнять">
+        <div class="hug-bubble">иди обниму</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="faq-card">
+        <span class="tag">Вопросы</span>
+        <h2>Что обычно уточняют перед подпиской</h2>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Это подписка или разовая покупка?</summary>
+            <p>Подписка. 10 000 ₽ в месяц, продление автоматическое, отмена — в один клик в личном кабинете. Без пакетов на 3, 6 или 12 месяцев и без обязательств по сроку.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Сколько раз в месяц можно делать разбор?</summary>
+            <p>Звони хоть каждый день. Внутри подписки ты получаешь регулярный доступ к голосовому разбору, а не один короткий созвон.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Чем это отличается от ChatGPT с подходящим промптом?</summary>
+            <p>Это не переписка и не конструктор промптов. Ты звонишь обычным телефоном, говоришь голосом, получаешь ответы в моей логике и после разговора забираешь саммари с прототипом декларации.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Сохраняется ли контекст между месяцами?</summary>
+            <p>Да. Каждый следующий звонок учитывает предыдущие разговоры, поэтому разбор не начинается с нуля и можно двигаться по треку.</p>
+          </details>
+          <details class="faq-item">
+            <summary>А нейросеть поймёт мою специфическую нишу?</summary>
+            <p>Я буду задавать уточняющие вопросы про продукт, маржу, клиентов, каналы, ограничения и текущую ситуацию. Этого достаточно, чтобы дойти до следующего управленческого шага даже в сложной нише.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Это безопасно? Мои цифры никуда не утекут?</summary>
+            <p>Разговор и PDF остаются приватными. На лендинге и в публичных материалах не используются ваши цифры, имена и детали бизнеса без отдельного согласия.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Какие гарантии результата?</summary>
+            <p>Я не обещаю магический рост без действий. Результат сервиса — ясный разбор, найденное ограничение, следующий шаг и декларация, которую можно выполнить и проверить.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-card">
+        <div class="footer-top">
+          <div class="footer-logo">
+            <img class="brand-logo" src="neuro-assets/neurogrebenuk-logo-footer.png" alt="НейроГребенюк">
+          </div>
+          <nav class="footer-menu" aria-label="Навигация в футере">
+            <a href="#result">Для кого</a>
+            <a href="#pay">Стоимость</a>
+            <a href="#summary">Что входит</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+          <div class="footer-support">
+            <h3>Служба поддержки:</h3>
+            <a class="support-link" href="#"><span class="support-icon">▶</span>nickname</a>
+            <a class="support-link" href="tel:+78999999999"><span class="support-icon">☎</span>8999 999 99 99</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="legal-links">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Персональные данные</a>
+            <a href="#">Реквизиты ИП / ООО</a>
+          </div>
+          <div class="footer-year">2026</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>
+</body>
+</html>
