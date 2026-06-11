@@ -1,0 +1,861 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap");
+
+:root {
+  --black: #10110f;
+  --ink: #0d0c18;
+  --paper: #fff;
+  --soft: #f2f2f2;
+  --acid: #f0f522;
+  --muted: #777;
+  --wrap: 1300px;
+}
+
+body {
+  background: var(--black);
+  color: var(--ink);
+  font-family: "Golos Text", Arial, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: min(calc(100% - 80px), var(--wrap));
+}
+
+.btn {
+  min-height: 46px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--acid);
+  color: #060606;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.btn.ghost {
+  border: 0;
+  background: #343432;
+}
+
+.pill,
+.eyebrow {
+  min-height: 24px;
+  padding: 0 12px;
+  border: 0;
+  background: #f2f2f2;
+  color: #171717;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.section {
+  padding: 110px 0;
+}
+
+.nav {
+  position: absolute;
+  top: 34px;
+  width: min(calc(100% - 80px), var(--wrap));
+}
+
+.brand-logo {
+  width: 235px;
+  height: auto;
+  max-height: 82px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav .btn {
+  min-height: 42px;
+  padding: 0 24px;
+}
+
+.hero {
+  order: 1;
+  min-height: 1010px;
+  padding: 180px 0 0;
+  background:
+    radial-gradient(circle at 70% 68%, rgba(238, 246, 32, .28), transparent 23%),
+    radial-gradient(circle at 51% 95%, rgba(238, 246, 32, .15), transparent 24%),
+    #121310;
+}
+
+.hero::before,
+.hero::after {
+  display: none;
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 650px) minmax(480px, 1fr);
+  gap: 55px;
+  align-items: end;
+}
+
+.hero .eyebrow {
+  display: none;
+}
+
+.hero h1,
+.section-head h2,
+.summary h2,
+.result-lead h3,
+.result-card h3,
+.crisis h2,
+.pocket h2,
+.faq-card h2,
+.review blockquote,
+.video-card h3 {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  max-width: 620px;
+  font-size: clamp(62px, 6.25vw, 96px);
+  line-height: .98;
+  color: #fff;
+}
+
+.hero h1 span {
+  color: var(--acid);
+}
+
+.hero-copy {
+  margin-top: 48px;
+  gap: 10px;
+}
+
+.hero-copy li {
+  grid-template-columns: 8px 1fr;
+  gap: 14px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hero-copy li::before {
+  width: 7px;
+  height: 7px;
+  margin-top: .42em;
+  box-shadow: none;
+  background: var(--acid);
+}
+
+.hero-actions {
+  margin-top: 42px;
+}
+
+.phone-stage {
+  min-height: 830px;
+  align-items: end;
+}
+
+.phone-stage::before {
+  display: none;
+}
+
+.phone {
+  width: 440px;
+  min-height: 820px;
+  border-width: 8px;
+  border-radius: 68px 68px 0 0;
+  border-bottom: 0;
+  box-shadow: 0 0 80px rgba(238, 246, 32, .17);
+}
+
+.phone-photo {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.6), transparent 27%, rgba(0,0,0,.06) 64%, rgba(0,0,0,.7)),
+    url("neuro-assets/mihail-phone-black.png") center 20% / cover no-repeat;
+}
+
+.phone-ui {
+  padding: 50px 30px 34px;
+}
+
+.phone-status {
+  color: #fff;
+}
+
+.call-info {
+  align-self: start;
+  margin: 0 auto auto;
+  padding-top: 28px;
+  text-align: center;
+}
+
+.call-time {
+  font-size: 20px;
+  color: #fff;
+}
+
+.caller {
+  margin-top: 10px;
+  font-size: 26px;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.caller small {
+  display: none;
+}
+
+.price-card {
+  display: none;
+}
+
+.academy,
+.pricing {
+  display: none;
+}
+
+#listen {
+  order: 2;
+  background: #fff;
+}
+
+#difference {
+  order: 3;
+  background: #fff;
+}
+
+#summary {
+  order: 4;
+}
+
+#result {
+  order: 5;
+  background: #fff;
+}
+
+.pocket {
+  order: 6;
+}
+
+#faq {
+  order: 7;
+  background: var(--black);
+}
+
+.section-head {
+  max-width: 900px;
+  margin-bottom: 70px;
+  gap: 18px;
+}
+
+.section-head h2 {
+  max-width: 850px;
+  font-size: clamp(52px, 5.6vw, 78px);
+  line-height: .98;
+  color: #0c0b18;
+}
+
+.section-head p {
+  max-width: 680px;
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: #858585;
+}
+
+.testimonials-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.video-card {
+  min-height: 610px;
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, transparent 35%, rgba(0,0,0,.88)),
+    url("neuro-assets/youtube.png") center / cover;
+}
+
+.video-card h3 {
+  left: 30px;
+  bottom: 92px;
+  font-size: 44px;
+  line-height: 1.02;
+}
+
+.video-card h3 span {
+  color: var(--acid);
+}
+
+.video-card p {
+  left: 30px;
+  right: 30px;
+  bottom: 32px;
+  font-size: 13px;
+}
+
+.reviews {
+  gap: 18px;
+}
+
+.review {
+  position: relative;
+  min-height: 135px;
+  grid-template-columns: 1fr;
+  padding: 25px 28px;
+  border-radius: 28px;
+  background: #f0f0f0;
+}
+
+.review:nth-child(n+4) {
+  display: none;
+}
+
+.review:nth-child(2) {
+  background: #151514;
+  color: #fff;
+}
+
+.review .avatar {
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--acid);
+  position: absolute;
+  bottom: 22px;
+  left: 28px;
+}
+
+.review blockquote {
+  max-width: 70%;
+  font-size: 28px;
+  line-height: 1.02;
+}
+
+.person {
+  position: absolute;
+  bottom: 26px;
+  left: 82px;
+  display: grid;
+  gap: 3px;
+  font-size: 10px;
+}
+
+.person span {
+  width: max-content;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--acid);
+  color: #111;
+}
+
+.audio {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 116px;
+  min-height: 44px;
+  grid-template-columns: 36px 1fr;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.audio > span:nth-child(2) {
+  display: none;
+}
+
+.play {
+  width: 34px;
+  height: 34px;
+  background: var(--acid);
+  color: #111;
+}
+
+.duration {
+  font-size: 10px;
+}
+
+.difference-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.difference {
+  position: relative;
+  min-height: 210px;
+  padding: 78px 25px 24px;
+  border: 0;
+  border-radius: 28px;
+  background: #f2f2f2;
+}
+
+.difference:nth-child(4),
+.difference:nth-child(5) {
+  min-height: 210px;
+}
+
+.difference:nth-child(5) {
+  background: var(--acid);
+}
+
+.difference b {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  left: auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #fff;
+  color: #111;
+  font-size: 0;
+}
+
+.difference b::after {
+  content: "✦";
+  font-size: 16px;
+}
+
+.difference h3 {
+  font-size: 17px;
+}
+
+.difference p {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #252525;
+}
+
+.summary {
+  padding: 120px 0;
+  background: #11120f;
+}
+
+.summary-grid {
+  grid-template-columns: .9fr 1.1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.summary h2 {
+  font-size: clamp(60px, 6.5vw, 94px);
+  line-height: .98;
+  color: #fff;
+}
+
+.summary h2 span {
+  color: var(--acid);
+}
+
+.summary p {
+  max-width: 590px;
+  margin-top: 28px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #888;
+}
+
+.summary .pill {
+  display: none;
+}
+
+.proofs {
+  margin-top: 60px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.proof {
+  min-height: 92px;
+  padding: 0 20px 0 0;
+  border-right: 1px solid rgba(255,255,255,.24);
+}
+
+.proof b {
+  color: var(--acid);
+  font-size: 28px;
+}
+
+.proof span {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.summary-actions {
+  margin-top: 52px;
+}
+
+.report {
+  transform: rotate(-7deg);
+  border: 14px solid #f6f6f6;
+  border-radius: 8px;
+  box-shadow: 0 30px 70px rgba(0,0,0,.4);
+}
+
+.result-wrap {
+  padding: 0;
+  background: transparent;
+}
+
+.result-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.result-lead,
+.result-card {
+  min-height: 210px;
+  padding: 26px;
+  border-radius: 28px;
+  background: #f1f1f1;
+}
+
+.result-lead {
+  grid-column: auto;
+  background: #121310;
+  color: #fff;
+}
+
+.result-lead h3,
+.result-card h3 {
+  font-size: 21px;
+  line-height: 1.05;
+}
+
+.result-lead p,
+.result-card ul {
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.crisis {
+  margin-top: 32px;
+  min-height: 480px;
+  padding: 54px 62px;
+  border-radius: 36px;
+  background: #10110f;
+}
+
+.crisis h2 {
+  max-width: 620px;
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: .98;
+}
+
+.crisis h2 span {
+  color: var(--acid);
+}
+
+.crisis .pill {
+  display: none;
+}
+
+.crisis p {
+  max-width: 600px;
+  font-size: 13px;
+  color: #898989;
+}
+
+.crisis-visual {
+  background: url("neuro-assets/kriziss.png") center / cover;
+  border-radius: 24px;
+}
+
+.pocket {
+  position: relative;
+  padding: 130px 0 120px;
+  background:
+    radial-gradient(circle at 48% 35%, rgba(238,246,32,.42), transparent 32%),
+    url("neuro-assets/woman.png") center top / cover no-repeat,
+    #10110f;
+}
+
+.pocket::before {
+  content: "ПОЛУЧИ СВОЙ РАЗБОР\A ПРЯМО СЕЙЧАС";
+  white-space: pre;
+  position: absolute;
+  top: 72px;
+  left: max(40px, calc((100% - var(--wrap)) / 2));
+  color: #fff;
+  font: 700 48px/.98 "Oswald", sans-serif;
+}
+
+.pocket-grid {
+  margin-top: 120px;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.pocket-grid > div:first-child {
+  order: 2;
+  min-height: 610px;
+  padding: 55px 42px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(176,184,28,.54), rgba(0,0,0,.85));
+}
+
+.pocket h2 {
+  font-size: clamp(52px, 5.4vw, 78px);
+  line-height: .98;
+}
+
+.pocket p {
+  font-size: 13px;
+  color: #ddd;
+}
+
+.hug {
+  order: 1;
+  min-height: 610px;
+  border-radius: 30px;
+  background: #050505;
+}
+
+.hug img {
+  object-fit: cover;
+}
+
+.bubble {
+  font-size: 16px;
+  transform: rotate(-10deg);
+}
+
+.pocket-stats {
+  margin-top: 70px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.pocket-stat b {
+  color: var(--acid);
+}
+
+.faq-card {
+  padding: 62px 70px;
+  border-radius: 36px;
+  background: #f7f7f7;
+}
+
+.faq-card h2 {
+  max-width: 530px;
+  margin: 24px 0 42px;
+  font-size: clamp(52px, 5vw, 72px);
+  line-height: .98;
+}
+
+summary {
+  min-height: 76px;
+  font-size: 16px;
+}
+
+details p {
+  max-width: 800px;
+  font-size: 13px;
+  color: #555;
+}
+
+.footer {
+  padding: 0 0 55px;
+  background: #11120f;
+}
+
+.footer-card {
+  padding: 40px 50px 28px;
+  border-radius: 34px;
+  background: #fff;
+}
+
+.footer-logo-wrap {
+  padding: 0;
+  background: transparent;
+}
+
+.footer .brand-logo {
+  width: 260px;
+  filter: brightness(.65);
+}
+
+@media (max-width: 1060px) {
+  .hero-grid,
+  .summary-grid,
+  .pocket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 150px;
+  }
+
+  .hero-grid {
+    gap: 40px;
+  }
+
+  .phone-stage {
+    min-height: 700px;
+  }
+
+  .phone {
+    min-height: 680px;
+  }
+
+  .difference-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .result-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pocket-grid > div:first-child,
+  .hug {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 680px) {
+  .container,
+  .nav {
+    width: calc(100% - 28px);
+  }
+
+  .nav {
+    top: 18px;
+  }
+
+  .brand-logo {
+    width: 145px;
+  }
+
+  .nav .btn {
+    font-size: 0;
+  }
+
+  .nav .btn::after {
+    content: "Получить разбор";
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 105px 0 0;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero-copy {
+    margin-top: 30px;
+  }
+
+  .hero-actions {
+    display: grid;
+    margin-top: 30px;
+  }
+
+  .phone-stage {
+    min-height: 530px;
+  }
+
+  .phone {
+    width: 290px;
+    min-height: 520px;
+    border-radius: 46px 46px 0 0;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .section-head {
+    margin-bottom: 36px;
+  }
+
+  .section-head h2,
+  .summary h2,
+  .pocket h2,
+  .faq-card h2 {
+    font-size: 42px;
+  }
+
+  .testimonials-grid,
+  .difference-list,
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-card {
+    min-height: 430px;
+  }
+
+  .review {
+    min-height: 145px;
+  }
+
+  .review blockquote {
+    font-size: 24px;
+  }
+
+  .summary-grid {
+    gap: 55px;
+  }
+
+  .proofs,
+  .pocket-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .proof {
+    padding: 14px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+  }
+
+  .report {
+    transform: rotate(-2deg);
+  }
+
+  .crisis {
+    padding: 30px 24px;
+  }
+
+  .crisis h2 {
+    font-size: 40px;
+  }
+
+  .crisis-visual {
+    min-height: 260px;
+  }
+
+  .pocket {
+    padding-top: 150px;
+  }
+
+  .pocket::before {
+    top: 65px;
+    left: 14px;
+    font-size: 38px;
+  }
+
+  .pocket-grid {
+    margin-top: 30px;
+  }
+
+  .pocket-grid > div:first-child {
+    padding: 32px 24px;
+  }
+
+  .faq-card {
+    padding: 34px 22px;
+  }
+
+  .footer-card {
+    padding: 28px 22px;
+  }
+}
