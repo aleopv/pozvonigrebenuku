@@ -3308,3 +3308,30 @@ details p,
     transform: translateY(1px) !important;
   }
 }
+
+/* Final iPhone alignment for the ChatGPT difference intro. */
+@media (max-width: 760px) {
+  #difference .section-head {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-items: start !important;
+    text-align: left !important;
+  }
+
+  #difference .section-head h2,
+  #difference .section-head p {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    text-wrap: auto !important;
+  }
+
+  #difference .section-head p {
+    margin-top: 20px !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+}
