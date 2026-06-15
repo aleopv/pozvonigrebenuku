@@ -3281,3 +3281,30 @@ details p,
     transform: translateY(1px) !important;
   }
 }
+
+/* Real mobile Safari nav CTA: compact text, no offsets, exact centering. */
+@media (max-width: 760px) {
+  .nav .btn {
+    flex: 0 0 clamp(108px, 28vw, 126px) !important;
+    width: clamp(108px, 28vw, 126px) !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 42px !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+
+  .nav .btn::after {
+    content: "Начать" !important;
+    inset: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: 0 !important;
+    font: 900 clamp(13px, 3.5vw, 15px)/1 "Oswald", "Arial Narrow", "Golos Text", Arial, sans-serif !important;
+    transform: translateY(1px) !important;
+  }
+}
