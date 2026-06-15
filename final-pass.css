@@ -3360,3 +3360,17 @@ details p,
     right: -18px !important;
   }
 }
+
+/* Mobile report preview: make the messenger report easier to read. */
+@media (max-width: 680px) {
+  .messenger-report#report-preview {
+    width: min(92vw, 450px) !important;
+    max-width: none !important;
+    justify-self: center !important;
+  }
+
+  .report-preview-img {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
