@@ -3335,3 +3335,28 @@ details p,
     line-height: 1.45 !important;
   }
 }
+
+/* Mobile listen heading: align the title text with the intro copy. */
+@media (max-width: 760px) {
+  #listen .section-head {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  #listen .section-head h2 {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
+
+  #listen .section-head h2::before {
+    left: -18px !important;
+  }
+
+  #listen .section-head h2::after {
+    right: -18px !important;
+  }
+}
