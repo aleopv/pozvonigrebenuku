@@ -1,5 +1,5 @@
 ﻿:root {
-  --yellow: #d5a300;
+  --yellow: #d8a500;
   --yellow-bright: #edc32b;
   --cream: #e7d6a5;
 }
@@ -76,7 +76,7 @@
 }
 
 #listen,
-#result { background-color: #d5a300; }
+#result { background-color: var(--mustard-bg, #d8a500); }
 
 .section-head { margin-bottom: 48px; gap: 18px; }
 .section-head h2 {
@@ -654,7 +654,11 @@ details p {
 
 .pocket-stat b {
   margin-bottom: 10px;
+  font-family: "Oswald", "Arial Narrow", "Golos Text", Arial, sans-serif !important;
+  font-weight: 700 !important;
   font-size: 32px;
+  line-height: .95;
+  letter-spacing: 0;
 }
 
 .pocket-stat span {
@@ -794,7 +798,7 @@ details p {
   --retro-red-dark: #82160f;
   --retro-ink: #12100b;
   --retro-paper: #efe1b8;
-  --retro-paper-deep: #d5a300;
+  --retro-paper-deep: var(--mustard-bg, #d8a500);
 }
 
 .btn {
@@ -858,7 +862,7 @@ details p {
   background:
     radial-gradient(circle at 78% 41%, rgba(255,230,72,.52) 0 10rem, transparent 26rem),
     repeating-linear-gradient(0deg, rgba(18,16,11,.045) 0 2px, transparent 2px 7px),
-    linear-gradient(113deg, #e0b108 0%, #c89200 47%, #0c0a06 47.2%, #050704 100%);
+    linear-gradient(113deg, var(--mustard-bg, #d8a500) 0%, var(--mustard-bg, #d8a500) 47%, #0c0a06 47.2%, #050704 100%);
   color: var(--retro-ink);
   border-bottom: 8px solid var(--retro-red);
 }
@@ -988,7 +992,7 @@ details p {
     background:
       radial-gradient(circle at 62% 58%, rgba(255,230,72,.46) 0 9rem, transparent 23rem),
       repeating-linear-gradient(0deg, rgba(18,16,11,.045) 0 2px, transparent 2px 7px),
-      linear-gradient(180deg, #d5a300 0%, #c79600 42%, #050704 42.2%, #050704 100%);
+      linear-gradient(180deg, var(--mustard-bg, #d8a500) 0%, var(--mustard-bg, #d8a500) 42%, #050704 42.2%, #050704 100%);
   }
 
   .hero .phone-stage {
@@ -1040,10 +1044,11 @@ details p {
 :root {
   --worn-black: #070705;
   --worn-ink: #11100b;
-  --worn-yellow: #e4ad00;
+  --worn-yellow: #d8a500;
   --worn-yellow-hot: #ffc400;
   --worn-paper: #f4e6bd;
   --worn-red: #d72a1d;
+  --mustard-bg: #d8a500;
 }
 
 body {
@@ -1443,6 +1448,7 @@ h3,
   line-height: 1.45;
   font-weight: 800;
   text-align: center;
+  text-wrap: auto;
 }
 
 .difference-list {
@@ -1940,6 +1946,17 @@ h3,
   align-items: stretch;
 }
 
+.result-wrap,
+.crisis {
+  width: min(calc(100% - 48px), 1120px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.crisis {
+  margin-top: 40px;
+}
+
 .result-lead,
 .result-card {
   counter-increment: result-step;
@@ -2421,6 +2438,32 @@ body.modal-open {
   }
 }
 
+/* FAQ toggles: show a clean plus in the closed state. */
+.faq-card summary::after {
+  content: "+" !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: Arial, sans-serif !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
+.faq-card details[open] summary::after {
+  content: "×" !important;
+}
+
+/* Result section mobile rhythm: keep the yellow footer gap under the crisis card tight. */
+@media (max-width: 680px) {
+  #result {
+    padding-bottom: 34px !important;
+  }
+
+  #result .crisis {
+    margin-bottom: 0 !important;
+  }
+}
+
 /* Audio review buttons: clear label for desktop and mobile */
 .review .audio {
   width: auto !important;
@@ -2545,10 +2588,11 @@ body.modal-open {
   }
 
   #difference .section-head p {
-    max-width: 580px;
+    max-width: 680px;
     margin: 18px auto 0;
     font-size: 15px;
     line-height: 1.5;
+    text-wrap: auto !important;
   }
 
   .difference-list {
@@ -2597,6 +2641,24 @@ body.modal-open {
     margin: 0;
     font-size: 15px;
     line-height: 1.42;
+    text-align: left;
+  }
+}
+
+@media (max-width: 760px) {
+  #difference .section-head {
+    align-items: flex-start;
+    justify-items: start;
+    text-align: left;
+  }
+
+  #difference .section-head h2 {
+    text-align: left;
+  }
+
+  #difference .section-head p {
+    max-width: none;
+    margin: 18px 0 0;
     text-align: left;
   }
 }
@@ -2802,6 +2864,13 @@ details p,
   font-weight: 700 !important;
 }
 
+.faq-card summary {
+  font-family: "Bebas Neue Cyrillic", "Oswald", "Arial Narrow", sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: .01em;
+  line-height: 1.08;
+}
+
 /* Exact centering for audio play/pause glyphs. */
 .review .audio .play {
   position: relative !important;
@@ -2844,10 +2913,15 @@ details p,
     overflow-x: hidden;
   }
 
+  :root {
+    --mobile-hero-width: min(calc(100vw - 28px), max(357px, calc(100vw - 42px)));
+    --mobile-hero-title-width: min(var(--mobile-hero-width), 362px);
+  }
+
   .nav {
     left: 14px !important;
     right: auto !important;
-    width: min(calc(100% - 28px), 362px) !important;
+    width: var(--mobile-hero-width) !important;
     gap: 10px;
     transform: none !important;
   }
@@ -2860,22 +2934,28 @@ details p,
 
   .nav .btn {
     flex: 0 0 auto;
-    min-width: 78px;
-    max-width: 92px;
-    padding: 0 10px !important;
+    min-width: 122px;
+    max-width: 138px;
+    padding: 0 14px !important;
     overflow: hidden;
     font-size: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .nav .btn::after {
-    content: "Начать" !important;
+    content: "Начать сейчас" !important;
     font-size: 12px !important;
+    line-height: 1 !important;
+    display: block;
   }
 
   .hero-grid,
   .hero-grid > * {
-    width: min(100%, 362px);
-    max-width: 362px;
+    width: var(--mobile-hero-width);
+    max-width: var(--mobile-hero-width);
     min-width: 0;
   }
 
@@ -2885,8 +2965,8 @@ details p,
   }
 
   .hero h1 {
-    width: min(100%, 362px);
-    max-width: 362px;
+    width: var(--mobile-hero-title-width);
+    max-width: var(--mobile-hero-title-width);
     font-size: clamp(36px, 9.6vw, 39px) !important;
     line-height: .98 !important;
     text-wrap: auto !important;
@@ -2903,5 +2983,301 @@ details p,
     max-width: 100%;
     white-space: normal;
     overflow-wrap: break-word;
+  }
+
+  .hero-copy,
+  .hero-actions {
+    width: var(--mobile-hero-width);
+    max-width: var(--mobile-hero-width);
+  }
+}
+
+@media (max-width: 760px) {
+  .nav .btn {
+    min-width: 142px !important;
+    max-width: 156px !important;
+    min-height: 42px !important;
+    padding: 0 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+  }
+
+  .nav .btn::after {
+    content: "Начать сейчас" !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100%;
+    height: 100%;
+    font: 900 14px/1 "Oswald", "Arial Narrow", "Golos Text", Arial, sans-serif !important;
+    text-align: center !important;
+    transform: translateY(1px);
+  }
+}
+
+/* Section heading alignment: centered on wide screens, left once layouts stack. */
+.section-head,
+.price-title {
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.section-head h2,
+.price-title h2,
+.price-title strong,
+#listen .section-head h2,
+#difference .section-head h2 {
+  text-align: center;
+}
+
+.section-head p,
+#listen .section-head p,
+#difference .section-head p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+@media (max-width: 1060px) {
+  .section-head,
+  #listen .section-head,
+  #difference .section-head,
+  .price-title {
+    align-items: flex-start;
+    justify-items: start;
+    text-align: left;
+  }
+
+  .section-head h2,
+  .price-title h2,
+  .price-title strong,
+  #listen .section-head h2,
+  #difference .section-head h2,
+  .bot-modal h2 {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .section-head p,
+  #listen .section-head p,
+  #difference .section-head p,
+  .bot-modal__lead {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .bot-modal__dialog {
+    text-align: left;
+  }
+
+  #listen .section-head h2 {
+    width: 100%;
+    padding: 0 30px;
+  }
+
+  #listen .section-head h2::before {
+    left: 0;
+  }
+
+  #listen .section-head h2::after {
+    right: 0;
+  }
+}
+
+/* Stacked hero rhythm: keep the first viewport focused on the offer text. */
+@media (max-width: 1060px) {
+  .hero {
+    padding-bottom: 0;
+  }
+
+  .hero-grid {
+    align-items: start;
+    gap: 0;
+  }
+
+  .hero-grid > div:first-child {
+    min-height: min(820px, calc(100svh - 28px));
+    padding-bottom: clamp(56px, 9svh, 92px);
+  }
+
+  .hero .phone-stage {
+    margin-top: clamp(56px, 10svh, 110px);
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-grid > div:first-child {
+    min-height: min(760px, calc(100svh - 24px));
+    padding-bottom: clamp(42px, 8svh, 72px);
+  }
+
+  .hero .phone-stage {
+    margin-top: clamp(42px, 9svh, 76px);
+  }
+}
+
+/* Unified mustard background color across all large yellow surfaces. */
+:root {
+  --yellow: var(--mustard-bg);
+  --retro-paper-deep: var(--mustard-bg);
+  --worn-yellow: var(--mustard-bg);
+}
+
+.hero::after {
+  background: linear-gradient(176deg, transparent 0 38%, var(--mustard-bg) 38.5% 100%) !important;
+}
+
+#listen,
+#result {
+  background: var(--mustard-bg) !important;
+  background-color: var(--mustard-bg) !important;
+}
+
+/* Wide mobile hero fit: iPhone Pro Max needs less empty right-side space. */
+@media (max-width: 680px) {
+  :root {
+    --mobile-hero-width: min(calc(100vw - 28px), max(357px, calc(100vw - 42px)));
+    --mobile-hero-title-width: var(--mobile-hero-width);
+  }
+
+  .nav {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+    max-width: none !important;
+    transform: none !important;
+  }
+
+  .brand-logo {
+    width: min(190px, calc(100vw - 185px)) !important;
+  }
+
+  .nav .btn {
+    flex: 0 0 min(154px, 38vw) !important;
+    width: min(154px, 38vw) !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: clamp(10px, 5vw, 24px) !important;
+    padding: 0 10px !important;
+  }
+
+  .nav .btn::after {
+    font-size: clamp(11px, 3.1vw, 13px) !important;
+    line-height: 1 !important;
+    transform: none !important;
+  }
+
+  .hero h1 {
+    width: var(--mobile-hero-title-width);
+    max-width: var(--mobile-hero-title-width);
+    font-size: clamp(35px, 8.9vw, 38px) !important;
+    line-height: 1.01 !important;
+  }
+
+  .hero h1 span {
+    font-size: clamp(32px, 8.25vw, 35px) !important;
+  }
+
+  .hero-actions .btn {
+    box-sizing: border-box;
+    width: calc(100% - 14px);
+  }
+
+  .hero-actions {
+    box-sizing: border-box;
+    padding-right: 14px;
+  }
+}
+
+@media (max-width: 399px) {
+  .brand-logo {
+    width: min(160px, calc(100vw - 180px)) !important;
+  }
+
+  .nav .btn {
+    flex-basis: 132px !important;
+    width: 132px !important;
+    margin-right: 18px !important;
+    transform: translateX(-26px) !important;
+  }
+
+  .hero h1 {
+    width: min(calc(100vw - 28px), 342px);
+    max-width: min(calc(100vw - 28px), 342px);
+    font-size: clamp(32px, 8.4vw, 34px) !important;
+    line-height: 1.03 !important;
+    white-space: normal !important;
+  }
+
+  .hero h1 span {
+    font-size: clamp(31px, 8.1vw, 33px) !important;
+  }
+}
+
+/* Keep the hero phone close to the opening offer on mobile. */
+@media (max-width: 1060px) {
+  .hero-grid {
+    gap: clamp(24px, 5vw, 42px) !important;
+  }
+
+  .hero-grid > div:first-child {
+    min-height: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero .phone-stage {
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-grid {
+    gap: 28px !important;
+  }
+}
+
+/* Final mobile nav CTA centering. */
+@media (max-width: 760px) {
+  .nav .btn {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    text-align: center !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+  }
+
+  .nav .btn::after {
+    content: "Начать сейчас" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+    font: 900 clamp(12px, 3.15vw, 14px)/1 "Oswald", "Arial Narrow", "Golos Text", Arial, sans-serif !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    transform: translateY(1px) !important;
   }
 }
