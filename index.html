@@ -1224,6 +1224,47 @@
         });
       });
     })();
+
+    (() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const selectors = [
+        ".section-head",
+        ".video-card",
+        ".review",
+        ".proof",
+        ".result-lead",
+        ".result-card",
+        ".crisis",
+        ".messenger-report",
+        ".retro-call-card",
+        ".pocket-grid",
+        ".faq-card",
+        ".plan",
+        ".footer-card"
+      ];
+
+      const items = document.querySelectorAll(selectors.join(","));
+      if (!items.length || !("IntersectionObserver" in window)) return;
+
+      items.forEach((item, index) => {
+        item.classList.add("motion-enter");
+        item.style.setProperty("--motion-delay", `${Math.min(index % 6, 5) * 70}ms`);
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.16,
+        rootMargin: "0px 0px -8% 0px"
+      });
+
+      items.forEach((item) => observer.observe(item));
+    })();
   </script>
 </body>
 </html>
