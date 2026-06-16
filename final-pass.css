@@ -3566,3 +3566,111 @@ details p,
     transform: none !important;
   }
 }
+
+/* Motion boost: stronger CTA focus, livelier pills and audio controls. */
+.nav .btn,
+.hero-actions .btn:first-child,
+.summary-actions .btn:first-child,
+.crisis .btn,
+.retro-call-copy .btn,
+.pocket-btn,
+.bot-modal__cta {
+  animation: cta-breathe 4.6s ease-in-out infinite;
+}
+
+.pill,
+.eyebrow {
+  transform-origin: 50% 50%;
+  animation: badge-bob 5.8s ease-in-out infinite;
+}
+
+.review .audio {
+  transition:
+    transform .2s var(--motion-ease),
+    box-shadow .2s var(--motion-ease),
+    border-color .2s ease,
+    background-color .2s ease;
+}
+
+.review .audio:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 18px rgba(0,0,0,.14);
+}
+
+.review .audio .play {
+  transition:
+    transform .2s var(--motion-ease),
+    background-color .2s ease,
+    color .2s ease,
+    box-shadow .2s ease;
+}
+
+.review .audio:hover .play {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 4px rgba(255,196,0,.12);
+}
+
+.review .audio.is-playing .play {
+  animation: play-pulse 1.4s ease-in-out infinite;
+}
+
+.faq-card summary,
+.footer-menu a,
+.support a {
+  transition:
+    color .2s ease,
+    transform .2s var(--motion-ease),
+    opacity .2s ease;
+}
+
+.faq-card summary:hover,
+.footer-menu a:hover,
+.support a:hover {
+  transform: translateX(3px);
+}
+
+.section-head h2,
+.price-title h2 {
+  transition: letter-spacing .26s ease, text-shadow .26s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .section-head:hover h2,
+  .price-title:hover h2 {
+    text-shadow: 0 8px 18px rgba(0,0,0,.08);
+  }
+
+  .review:hover .audio,
+  .video-card:hover .audio {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes cta-breathe {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 0 rgba(255,196,0,0);
+  }
+  50% {
+    box-shadow: 0 10px 22px rgba(0,0,0,.16), 0 0 0 6px rgba(255,196,0,.08);
+  }
+}
+
+@keyframes badge-bob {
+  0%, 100% {
+    transform: rotate(-1deg) translateY(0);
+  }
+  50% {
+    transform: rotate(.4deg) translateY(-2px);
+  }
+}
+
+@keyframes play-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255,196,0,.18);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 6px rgba(255,196,0,.08);
+  }
+}
