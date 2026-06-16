@@ -3376,13 +3376,13 @@ details p,
 }
 
 /* Mobile crisis visual: enlarge the route image inside its card. */
-@media (max-width: 680px) {
+@media (max-width: 1060px) {
   .crisis-visual {
     width: 100% !important;
     max-width: none !important;
     aspect-ratio: 1916 / 821 !important;
-    min-height: clamp(180px, 42vw, 230px) !important;
-    background-size: contain !important;
+    min-height: clamp(220px, 34vw, 310px) !important;
+    background-size: 108% auto !important;
   }
 }
 
