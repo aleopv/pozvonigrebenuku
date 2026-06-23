@@ -3665,3 +3665,94 @@ details p,
     box-shadow: 0 0 0 6px rgba(255,196,0,.08);
   }
 }
+
+/* Oswald tuning: lighter, calmer display headings after replacing Bebas. */
+.hero h1,
+.section-head h2,
+.summary h2,
+.price-title h2,
+.price-title strong,
+.result-lead h3,
+.result-card h3,
+.crisis h2,
+.difference h3,
+.retro-call-copy h2,
+.pocket h2,
+.faq-card h2,
+.bot-modal h2 {
+  font-weight: 500 !important;
+}
+
+.hero h1 {
+  font-size: clamp(56px, 5.9vw, 84px) !important;
+  line-height: .98 !important;
+}
+
+.hero h1 span {
+  font-size: clamp(44px, 4.15vw, 58px) !important;
+  line-height: 1.06 !important;
+}
+
+.section-head h2,
+.summary h2,
+.price-title h2,
+.price-title strong,
+.pocket h2,
+.faq-card h2 {
+  font-size: clamp(40px, 5.2vw, 74px) !important;
+  line-height: 1.04 !important;
+}
+
+#listen .section-head h2,
+#difference .section-head h2 {
+  font-size: clamp(38px, 4.8vw, 68px) !important;
+  line-height: 1.04 !important;
+}
+
+.result-card h3,
+.difference h3,
+.retro-call-copy h2,
+.crisis h2 {
+  line-height: 1.12 !important;
+}
+
+.retro-call-copy h2 {
+  font-size: clamp(36px, 3.35vw, 48px) !important;
+}
+
+.bot-modal h2 {
+  font-size: clamp(40px, 4.4vw, 62px) !important;
+  line-height: 1.04 !important;
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: clamp(30px, 8vw, 36px) !important;
+    line-height: 1.08 !important;
+  }
+
+  .hero h1 span {
+    font-size: clamp(29px, 7.7vw, 34px) !important;
+    line-height: 1.1 !important;
+  }
+
+  .section-head h2,
+  #listen .section-head h2,
+  #difference .section-head h2,
+  .summary h2,
+  .price-title h2,
+  .price-title strong,
+  .pocket h2,
+  .faq-card h2 {
+    font-size: clamp(32px, 8.4vw, 42px) !important;
+    line-height: 1.08 !important;
+  }
+
+  .result-card h3,
+  .difference h3,
+  .retro-call-copy h2,
+  .crisis h2 {
+    font-size: clamp(28px, 7.4vw, 36px) !important;
+    line-height: 1.14 !important;
+  }
+}
