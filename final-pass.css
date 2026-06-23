@@ -1679,15 +1679,6 @@ h3,
   }
 }
 
-/* Font test: Bebas Neue Cyrillic for display headings */
-@font-face {
-  font-family: "Bebas Neue Cyrillic";
-  src: url("neuro-assets/fonts/bebas-neue-regular-cyrillic.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 .hero h1,
 .section-head h2,
 .video-card h3,
@@ -1702,23 +1693,23 @@ h3,
 .retro-call-copy h2,
 .pocket h2,
 .faq-card h2 {
-  font-family: "Bebas Neue Cyrillic", "Oswald", "Arial Narrow", sans-serif;
-  font-weight: 400;
+  font-family: "Oswald", "Arial Narrow", "Golos Text", sans-serif;
+  font-weight: 600;
   letter-spacing: .01em;
 }
 
 .hero h1 {
   font-size: clamp(64px, 6.7vw, 98px);
-  line-height: .82;
+  line-height: .9;
 }
 
 .section-head h2 {
-  line-height: .86;
+  line-height: .94;
 }
 
 .difference h3,
 .result-card h3 {
-  line-height: .92;
+  line-height: 1;
 }
 
 @media (max-width: 680px) {
@@ -1858,9 +1849,9 @@ h3,
   max-width: 100%;
   white-space: nowrap;
   font-family: "Oswald", "Arial Narrow", "Golos Text", sans-serif !important;
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(48px, 4.55vw, 66px);
-  line-height: .88;
+  line-height: 1;
 }
 
 @media (max-width: 680px) {
@@ -2114,7 +2105,7 @@ h3,
 
 .hero h1 span {
   margin: .04em 0 .03em;
-  line-height: .9 !important;
+  line-height: 1 !important;
 }
 
 .proof {
@@ -2224,7 +2215,7 @@ body.modal-open {
   max-width: 640px;
   margin: 20px auto 12px;
   color: var(--worn-paper);
-  font: 400 clamp(48px, 5vw, 72px)/.9 "Bebas Neue Cyrillic", "Oswald", sans-serif;
+  font: 600 clamp(48px, 5vw, 72px)/.98 "Oswald", "Arial Narrow", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0;
 }
@@ -2682,10 +2673,10 @@ body.modal-open {
 
 .retro-call-copy h2 {
   font-family: "Oswald", "Arial Narrow", "Golos Text", sans-serif;
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: 0;
   font-size: clamp(42px, 3.8vw, 56px);
-  line-height: 1;
+  line-height: 1.08;
 }
 
 .retro-call-title {
@@ -2734,10 +2725,10 @@ body.modal-open {
 
   .retro-call-copy h2 {
     font-family: "Oswald", "Arial Narrow", "Golos Text", sans-serif;
-    font-weight: 900;
+    font-weight: 600;
     letter-spacing: 0;
     font-size: clamp(40px, 5.4vw, 54px);
-    line-height: 1;
+    line-height: 1.08;
   }
 
   .retro-call-copy p {
@@ -2788,7 +2779,7 @@ body.modal-open {
   .retro-call-copy h2 {
     max-width: 300px;
     font-size: clamp(36px, 11vw, 44px);
-    line-height: .98;
+    line-height: 1.08;
   }
 
   .retro-call-title {
@@ -2865,10 +2856,10 @@ details p,
 }
 
 .faq-card summary {
-  font-family: "Bebas Neue Cyrillic", "Oswald", "Arial Narrow", sans-serif !important;
+  font-family: "Oswald", "Arial Narrow", "Golos Text", sans-serif !important;
   font-weight: 400 !important;
   letter-spacing: .01em;
-  line-height: 1.08;
+  line-height: 1.16;
 }
 
 /* Exact centering for audio play/pause glyphs. */
